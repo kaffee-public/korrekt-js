@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+        </script>
+        <script>
+            function Check() {
+                for (var key in answers) {
+                    if($('#' + key).val() == answers[key]){
+                        $('#' + key).css("background-color","green");
+                    }
+                    else{
+                        $('#' + key).css("background-color","red");
+                    }
+
+                    $('#' + key).prop("disabled", true);
+                }
+
+                $("button").find("i").attr('class','fa fa-undo');
+                $("button span").text(' Retry');
+                $("button").attr('onClick','Retry()');
+
+            };
+            var answers=new Array();
+            answers['a'] = "elemet";
+            answers['b'] = "kellene";
+            answers['c'] = "utolsó";
+            function Retry() {
+                for (var key in answers) {
+                    $('#' + key).css("background-color","white");
+                    $('#' + key).val('');
+
+                    $('#' + key).prop("disabled", false);
+                }
+                $("button").find("i").attr('class','fa fa-key');
+                $("button span").text(' Check');
+                $("button").attr('onClick','Check()');
+            };
+        </script>
+    </head>
+    <body>
+        <form class="pure-form" autocomplete="off">
+            Ide kell kiválasztani a megfelelõ <select id="a" onchange="favBrowser()">
+                <option ></option>
+                <option >elemet</option>
+                <option >kereket</option>
+                <option >tehenet</option>
+                <option >banán</option>
+                <option >választ</option>
+            </select>.
+            Itt meg ide<select id="b" onchange="favBrowser()">
+                <option ></option>
+                <option >balra</option>
+                <option >Firefox</option>
+                <option >Internet Explorer</option>
+                <option >kellene</option>
+                <option >Opera</option>
+            </select> valami.
+            Ez a 3.dik és egyben<select id="c" onchange="favBrowser()">
+                <option></option>
+                <option >Google Chrome</option>
+                <option >utolsó</option>
+                <option >Internet Explorer</option>
+                <option >Safari</option>
+                <option >Opera</option>
+            </select> ebben a feladatban.
+        </form>
+        <button class="pure-button" type="button" onclick="Check()">
+            <i class="fa fa-key"></i><span>&nbsp;Check</span>
+        </button>
+    </body>
+</html>

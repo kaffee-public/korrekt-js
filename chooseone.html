@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+        </script>
+        <style>
+            .check{display:none;}
+        </style>
+        <script>
+            function Check() {
+                $("input").attr('disabled',true);
+                $("input:checked").parent().find("i").show();
+                $("button").find("i").attr('class','fa fa-undo');
+                $("button span").text('Retry');
+                $("button").attr('onClick','Retry()');
+            };
+
+            function Retry() {
+                $("input").attr('disabled',false);
+                $("input").parent().find("i").hide();
+                $("button").find("i").attr('class','fa fa-key');
+                $("button span").text('Check');
+                $("button").attr('onClick','Check()');
+            };
+        </script>
+
+    </head>
+    <body>
+        <form class="pure-form">
+            <label for="0" class="pure-radio">
+                <input id="0" type="radio" name="optionsRadios" value="option1" >
+
+                Option 1
+                <i class ="fa fa-times check"></i>
+            </label>
+
+            <label for="1" class="pure-radio">
+                <input id="1" type="radio" name="optionsRadios" value="option2">
+                OPtion 2
+                <i class="fa fa-times check"></i>
+            </label>
+            <label for="2" class="pure-radio">
+                <input id="2" type="radio" name="optionsRadios" value="option3" >
+                Option 3
+                <i class="fa fa-times check"></i>
+            </label>
+
+            <label for="3" class="pure-radio">
+                <input id="3" type="radio" name="optionsRadios" value="option4">
+                Option four
+                <i class="fa fa-check check"></i>
+            </label>
+        </form>
+        <p><br><br></p>
+        <form class="pure-form">
+            <label for="5" class="pure-radio">
+                <input id="5" type="radio" name="optionsRadios" value="option1" >
+                Here's a radio button. You can choose this one..
+            </label>
+
+            <label for="6" class="pure-radio">
+                <input id="6" type="radio" name="optionsRadios" value="option2">
+                ..Or this one!
+            </label>
+            <label for="7" class="pure-radio">
+                <input id="7" type="radio" name="optionsRadios" value="option3" checked>
+                Here's a radio button. You can choose this one..
+            </label>
+
+            <label for="8" class="pure-radio">
+                <input id="8" type="radio" name="optionsRadios" value="option4">
+                ..Or this one!
+            </label>
+        </form>
+        <button class="pure-button" onClick="Check()">
+            <i class="fa fa-key"></i><span>Check</span>
+        </button>
+
+    </body>
+</html>

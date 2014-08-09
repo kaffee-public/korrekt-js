@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+        </script>
+        <style>
+            .fa-check{display:none;}
+            ul
+            {
+                list-style-type: none;
+            }
+        </style>
+        <script>
+            var arr=new Array();
+            arr['a']=new Array();
+            arr['a'][0] = true;
+            arr['a'][1] = false;
+            arr['a'][2] = false;
+            arr['a'][3] = true;
+            arr['b']=new Array();
+            arr['b'][0] = false;
+            arr['b'][1] = true;
+            arr['b'][2] = true;
+            arr['b'][3] = false;
+            function Check() {
+
+                for (var form in arr) {
+                    for (var id in arr[form]){
+                        var curr = $('#' + form +" "+ '#' + id);
+                        if(curr.is(':checked') != arr[form][id])
+                        {
+                            curr.parent().find("i").attr('class','fa fa-times');
+                        }
+                        curr.parent().find("i").show();
+                    }
+                }
+            };
+
+            function Retry() {
+                $("input").parent().find("i").hide();
+                $("button").find("i").attr('class','fa fa-key');
+                $("button span").text('Check');
+                $("button").attr('onClick','Check()');
+            };
+
+        </script>
+    </head>
+    <body>
+
+        <form class="pure-form" id="a" action="">
+            <p>Check the correct ones!</p>
+            <ul>
+                <li><i class="fa fa-check"></i><input  id="0" type="checkbox" name="vehicle" value="Bike" >I have a bike</li>
+                <li><i class="fa fa-check"></i><input  id="1" type="checkbox" name="vehicle" value="Bike">I have a cat</li>
+                <li><i class="fa fa-check"></i><input  id="2" type="checkbox" name="vehicle" value="Bike">I have a dog</li>
+                <li><i class="fa fa-check"></i><input  id="3" type="checkbox" name="vehicle" value="Car">I have a car</li>
+            </ul>
+        </form>
+        <form class="pure-form" id="b" action="">
+            <p>Check the correct ones!</p>
+            <ul>
+                <li> <i class="fa fa-check"></i><input  id="0" type="checkbox" name="vehicle" value="Bike">I has a bike</li>
+                <li><i class="fa fa-check"></i><input  id="1" type="checkbox" name="vehicle" value="Bike">I have a cat</li>
+                <li><i class="fa fa-check"></i><input  id="2" type="checkbox" name="vehicle" value="Bike">You have a dog</li>
+                <li>  <i class="fa fa-check"></i><input  id="3" type="checkbox" name="vehicle" value="Car">He have a car</li>
+            </ul>
+        </form>
+        <button class="pure-button" onClick="Check()">
+            <i class="fa fa-key"></i><span>Check</span>
+        </button>
+
+
+    </body>
+</html>

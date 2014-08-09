@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>jQuery UI Draggable - Snap to element or grid</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css" />
+<style>
+.draggable { width: 63px; height: 21px; padding: 0px; float: left; margin: 0 10px 10px 0; font-size: .9em; }
+.ui-widget-header p, .ui-widget-content p { margin: 0;}
+#snaptarget, #snaptarget2, #snaptarget3, #snaptarget4 { float:left; width:63px; height: 21px; }
+
+div { height: 40px;}
+</style>
+<script>
+$(function() {
+$( "#draggable" ).draggable({ snap: ".ui-widget-header",revert:"invalid" });
+$( "#draggable2" ).draggable({ snap: ".ui-widget-header",revert:"invalid" });
+$( "#draggable3" ).draggable({ snap: ".ui-widget-header",revert:"invalid" });
+$( "#draggable4" ).draggable({ snap: ".ui-widget-header",revert:"invalid" });
+$( "#draggable5" ).draggable({ snap: ".ui-widget-header",revert:"invalid" });
+$( "#snaptarget" ).droppable({ accept: ".draggable" });
+$( "#snaptarget2" ).droppable({ accept: ".draggable" });
+$( "#snaptarget3" ).droppable({ accept: ".draggable" });
+$( "#snaptarget4" ).droppable({ accept: ".draggable" });
+});
+</script>
+</head>
+<body>
+<div style="float:left">Ez az első mondat, amibe be kell</div><div id="snaptarget" class="ui-widget-header"></div><div>a szavakat. Ez pedig egy nagyon </div><div id="snaptarget2" class="ui-widget-header"></div><div>festmény.</div>
+<div id="snaptarget3" class="ui-widget-header"></div><div>alma nem estt messze a fájától.Ez </div><div id="snaptarget4" class="ui-widget-header"></div><div>közmondás.</div>
+<br/>
+<div id="snaptarget5">
+<div id="draggable" class="draggable ui-widget-content">
+<p>szép</p>
+</div>
+<div id="draggable2" class="draggable ui-widget-content">
+<p>illeszteni</p>
+</div>
+<div id="draggable3" class="draggable ui-widget-content">
+<p>az</p>
+</div>
+</div>
+<div id="draggable4" class="draggable ui-widget-content">
+<p>egy</p>
+</div>
+<div id="draggable5" class="draggable ui-widget-content">
+<p>zöld</p>
+</div>
+</body>
