@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Korrekt-js</title>
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
@@ -13,43 +14,12 @@
                 list-style-type: none;
             }
         </style>
-        <script>
-            var arr=new Array();
-            arr['a']=new Array();
-            arr['a'][0] = true;
-            arr['a'][1] = false;
-            arr['a'][2] = false;
-            arr['a'][3] = true;
-            arr['b']=new Array();
-            arr['b'][0] = false;
-            arr['b'][1] = true;
-            arr['b'][2] = true;
-            arr['b'][3] = false;
-            function Check() {
-
-                for (var form in arr) {
-                    for (var id in arr[form]){
-                        var curr = $('#' + form +" "+ '#' + id);
-                        if(curr.is(':checked') != arr[form][id])
-                        {
-                            curr.parent().find("i").attr('class','fa fa-times');
-                        }
-                        curr.parent().find("i").show();
-                    }
-                }
-            };
-
-            function Retry() {
-                $("input").parent().find("i").hide();
-                $("button").find("i").attr('class','fa fa-key');
-                $("button span").text('Check');
-                $("button").attr('onClick','Check()');
-            };
-
+        <script src="js/option.js">
         </script>
     </head>
     <body>
-
+        <h1>Options</h1>
+        <p>Test site for Options-styled tasks in jQuery implementation.</p>
         <form class="pure-form" id="a" action="">
             <p>Check the correct ones!</p>
             <ul>
@@ -71,7 +41,6 @@
         <button class="pure-button" onClick="Check()">
             <i class="fa fa-key"></i><span>Check</span>
         </button>
-
 
     </body>
 </html>

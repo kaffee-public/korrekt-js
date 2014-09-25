@@ -1,41 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Korrekt-js</title>
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
         </script>
-        <script>
-            var answers=new Array();
-            answers[0] = "das";
-            answers[1] = "der";
-            answers[2] = "die";
-            $(document).ready(function(){
-                $("div").focusin(function(){
-                    $(this).find("input").css("background-color","white");
-                });
-                $("div").focusout(function(){
-                    if($( this ).find( "input" ).val() !=""){
-                        if($( this ).find( "input" ).val() == answers[$(this).find("input").attr('id')]){
-                            $(this).find("input").css("background-color","green");
-                        }
-                        else{
-                            $(this).find("input").css("background-color","red");
-                        }
-                    }
-                });
-            });
-            function Retry() {
-                for (var key in answers) {
-                    $('#' + key).css("background-color","white");
-                    $('#' + key).val('');
-                }
-            };
+        <script src="js/fill_the_gap.js">
         </script>
     </head>
     <body>
-
+        <h1>Fill-the-gap</h1>
+        <p>Test site for Fill-the-gap-styled tasks in jQuery implementation.</p>
         <form class="pure-form">
             Fill in the pronomen!
             <div>1. <input id="0" type="text" autocomplete="off"> Auto.</div>
