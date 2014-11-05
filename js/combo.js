@@ -18,7 +18,7 @@ function Check() {
 ;
 var answers = new Array();
 answers['a'] = "element";
-answers['b'] = "left";
+answers['b'] = "missing";
 answers['c'] = "the last";
 function Retry() {
     for (var key in answers) {
